@@ -94,7 +94,7 @@ const ManagementLayout = () => {
               <motion.button
                 key={tile.to}
                 {...anim(i)}
-                onClick={() => navigate(tile.to === "/management" ? "/management/dashboard-view" : tile.to)}
+                onClick={() => navigate(tile.to)}
                 className={`group relative flex flex-col items-center gap-4 p-8 rounded-2xl border-2 bg-gradient-to-br ${tile.color} ${tile.borderColor} transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer text-left`}
               >
                 <div className={`p-4 rounded-xl bg-card shadow-sm ${tile.iconColor}`}>
