@@ -69,7 +69,7 @@ const Register = () => {
   };
 
   return (
-    <div className="h-screen flex bg-register-bg overflow-hidden select-none">
+    <div className="h-[calc(100vh-3.5rem)] flex bg-register-bg overflow-hidden select-none">
       {/* LEFT PANEL - Branding & Shortcuts */}
       <div className="w-[260px] flex flex-col border-r border-register-border bg-card">
         {/* DS Branding */}
@@ -142,16 +142,6 @@ const Register = () => {
           </div>
         </div>
 
-        {/* Back button */}
-        <div className="p-2 border-t border-register-border">
-          <button
-            onClick={() => navigate("/")}
-            className="flex items-center gap-2 w-full px-3 py-2 rounded text-xs font-medium text-accent hover:bg-muted transition-colors"
-          >
-            <ChevronLeft className="h-3.5 w-3.5" />
-            Retour à l'accueil
-          </button>
-        </div>
       </div>
 
       {/* CENTER PANEL - Total, Summary, Items */}
