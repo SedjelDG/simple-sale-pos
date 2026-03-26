@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 const hubTiles = [
   {
-    to: "/management",
+    to: "/management/dashboard",
     icon: LayoutDashboard,
     label: "Tableau de bord",
     description: "Vue d'ensemble de votre activité, ventes et alertes",
