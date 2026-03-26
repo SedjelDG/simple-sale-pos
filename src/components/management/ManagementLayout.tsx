@@ -36,7 +36,7 @@ const hubTiles = [
 const anim = (i: number) => ({
   initial: { opacity: 0, y: 20, scale: 0.95 },
   animate: { opacity: 1, y: 0, scale: 1 },
-  transition: { delay: i * 0.08, duration: 0.4, ease: "easeOut" },
+  transition: { delay: i * 0.08, duration: 0.4, ease: "easeOut" as const },
 });
 
 const ManagementLayout = () => {
