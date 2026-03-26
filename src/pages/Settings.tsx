@@ -33,19 +33,9 @@ const Settings = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <div className="pos-header-gradient px-6 py-4 flex items-center gap-4">
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={() => navigate("/")}
-          className="text-primary-foreground hover:bg-primary-foreground/10"
-        >
-          <ChevronLeft className="h-5 w-5" />
-        </Button>
-        <div>
-          <h1 className="text-lg font-semibold text-primary-foreground">Paramètres</h1>
-          <p className="text-xs text-primary-foreground/60">Configuration générale du logiciel</p>
-        </div>
+      <div className="pos-header-gradient px-6 py-4">
+        <h1 className="text-lg font-semibold text-primary-foreground">Paramètres</h1>
+        <p className="text-xs text-primary-foreground/60">Configuration générale du logiciel</p>
       </div>
 
       <div className="max-w-4xl mx-auto p-6 space-y-6">
