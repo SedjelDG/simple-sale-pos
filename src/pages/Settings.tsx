@@ -18,7 +18,6 @@ const anim = (i: number) => ({
 });
 
 const Settings = () => {
-  const navigate = useNavigate();
   const { settings, updateSettings, updateHardware } = useSettings();
   const { toast } = useToast();
 
