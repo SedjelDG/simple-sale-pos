@@ -69,7 +69,7 @@ const Register = () => {
   };
 
   return (
-    <div className="h-screen flex bg-register-bg overflow-hidden select-none">
+    <div className="h-[calc(100vh-3.5rem)] flex bg-register-bg overflow-hidden select-none">
       {/* LEFT PANEL - Branding & Shortcuts */}
       <div className="w-[260px] flex flex-col border-r border-register-border bg-card">
         {/* DS Branding */}
