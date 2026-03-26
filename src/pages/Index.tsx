@@ -1,68 +1,68 @@
-import { useState, useMemo, useCallback } from "react";
-import { toast } from "sonner";
-import { products } from "@/data/products";
-import CategoryBar from "@/components/CategoryBar";
-import ProductGrid from "@/components/ProductGrid";
-import Cart, { CartItem } from "@/components/Cart";
-import type { Product } from "@/data/products";
+import { useNavigate } from "react-router-dom";
+import { Settings, ShoppingCart, Cog } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 const Index = () => {
-  const [category, setCategory] = useState("All");
-  const [cart, setCart] = useState<CartItem[]>([]);
-
-  const filtered = useMemo(
-    () => (category === "All" ? products : products.filter((p) => p.category === category)),
-    [category]
-  );
-
-  const addToCart = useCallback((product: Product) => {
-    setCart((prev) => {
-      const existing = prev.find((i) => i.id === product.id);
-      if (existing) {
-        return prev.map((i) => (i.id === product.id ? { ...i, quantity: i.quantity + 1 } : i));
-      }
-      return [...prev, { id: product.id, name: product.name, price: product.price, quantity: 1, emoji: product.emoji }];
-    });
-  }, []);
-
-  const updateQty = useCallback((id: string, delta: number) => {
-    setCart((prev) =>
-      prev
-        .map((i) => (i.id === id ? { ...i, quantity: i.quantity + delta } : i))
-        .filter((i) => i.quantity > 0)
-    );
-  }, []);
-
-  const removeItem = useCallback((id: string) => {
-    setCart((prev) => prev.filter((i) => i.id !== id));
-  }, []);
-
-  const checkout = useCallback(() => {
-    const total = cart.reduce((s, i) => s + i.price * i.quantity, 0) * 1.08;
-    toast.success(`Payment of $${total.toFixed(2)} processed!`);
-    setCart([]);
-  }, [cart]);
+  const navigate = useNavigate();
 
   return (
-    <div className="flex h-screen bg-background">
-      {/* Product area */}
-      <div className="flex-1 flex flex-col p-4 gap-4 overflow-hidden">
-        <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-bold text-foreground tracking-tight">Point of Sale</h1>
-          <span className="text-xs text-muted-foreground">
-            {new Date().toLocaleDateString("en-US", { weekday: "long", month: "short", day: "numeric" })}
-          </span>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-background gap-6">
+      <div className="text-center mb-4">
+        <div className="flex items-center justify-center gap-1">
+          <motion.span
+            initial={{ opacity: 0, x: -30, rotateY: 90 }}
+            animate={{ opacity: 1, x: 0, rotateY: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="text-5xl font-black tracking-tight text-primary"
+          >
+            D
+          </motion.span>
+          <motion.span
+            initial={{ opacity: 0, x: 30, rotateY: -90 }}
+            animate={{ opacity: 1, x: 0, rotateY: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
+            className="text-5xl font-black tracking-tight text-primary"
+          >
+            S
+          </motion.span>
         </div>
-        <CategoryBar active={category} onSelect={setCategory} />
-        <div className="flex-1 overflow-y-auto">
-          <ProductGrid products={filtered} onAddToCart={addToCart} />
-        </div>
+        <motion.p
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.4 }}
+          className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-semibold"
+        >
+          Software
+        </motion.p>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.5 }}
+          transition={{ delay: 0.8, duration: 0.6 }}
+          className="text-[10px] tracking-widest uppercase text-muted-foreground mt-1"
+        >
+          Djaouad & Seddik
+        </motion.p>
       </div>
-
-      {/* Cart sidebar */}
-      <div className="w-80 lg:w-96 border-l border-border bg-card flex flex-col">
-        <Cart items={cart} onUpdateQty={updateQty} onRemove={removeItem} onCheckout={checkout} />
-      </div>
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.6, duration: 0.4 }}
+        className="flex gap-4"
+      >
+        <Button size="lg" className="bg-primary text-primary-foreground px-8 py-6 text-lg" onClick={() => navigate("/register")}>
+          <ShoppingCart className="h-5 w-5 mr-2" />
+          Caisse
+        </Button>
+        <Button size="lg" variant="outline" className="border-primary text-primary px-8 py-6 text-lg" onClick={() => navigate("/management")}>
+          <Settings className="h-5 w-5 mr-2" />
+          Gestion
+        </Button>
+        <Button size="lg" variant="outline" className="border-muted-foreground text-muted-foreground px-8 py-6 text-lg hover:border-primary hover:text-primary" onClick={() => navigate("/settings")}>
+          <Cog className="h-5 w-5 mr-2" />
+          Paramètres
+        </Button>
+      </motion.div>
     </div>
   );
 };
