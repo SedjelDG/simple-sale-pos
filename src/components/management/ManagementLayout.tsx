@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { LayoutDashboard, Package, Scale, ChevronLeft, Clock, User } from "lucide-react";
+import { LayoutDashboard, Package, Scale, Clock, User } from "lucide-react";
 
 const navItems = [
   { to: "/management", icon: LayoutDashboard, label: "Tableau de bord", end: true },
