@@ -25,7 +25,7 @@ const App = () => (
           <Route path="/register" element={<Register />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/management" element={<ManagementLayout />}>
-            <Route index element={null} />
+            <Route index element={<Navigate to="/management/dashboard" replace />} />
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="products" element={<ProductManagement />} />
             <Route path="scale" element={<ScaleIntegration />} />
