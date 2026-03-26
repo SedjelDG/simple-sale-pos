@@ -1,8 +1,7 @@
-import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
-  ChevronLeft, Globe, Sun, Moon, Monitor, Hand, Printer, ScanBarcode,
-  Scale, Wifi, WifiOff, TestTube, Save
+  Globe, Sun, Moon, Monitor, Hand, Printer, ScanBarcode,
+  Scale, Wifi, WifiOff, TestTube
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";

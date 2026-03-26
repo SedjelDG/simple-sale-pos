@@ -142,16 +142,6 @@ const Register = () => {
           </div>
         </div>
 
-        {/* Back button */}
-        <div className="p-2 border-t border-register-border">
-          <button
-            onClick={() => navigate("/")}
-            className="flex items-center gap-2 w-full px-3 py-2 rounded text-xs font-medium text-accent hover:bg-muted transition-colors"
-          >
-            <ChevronLeft className="h-3.5 w-3.5" />
-            Retour à l'accueil
-          </button>
-        </div>
       </div>
 
       {/* CENTER PANEL - Total, Summary, Items */}
