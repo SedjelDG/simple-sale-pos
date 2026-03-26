@@ -44,15 +44,6 @@ const ManagementLayout = () => {
           ))}
         </nav>
 
-        <div className="border-t border-border p-3">
-          <NavLink
-            to="/"
-            className="flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium text-accent hover:bg-muted transition-colors"
-          >
-            <ChevronLeft className="h-4 w-4" />
-            Retour à la caisse
-          </NavLink>
-        </div>
       </aside>
 
       {/* Main area */}
